@@ -38,21 +38,27 @@ while True:
     elif status == 1 and hora_5m == operacao_atual:
         cont += 1
         if lista_historico[0] == 'red':
+            count_reds = 0
             for i in range(1,5):
                 if lista_historico[i] == 'red':
-                    print('Aguarde tem muitos vermelhos')
-                    status = 0
-                else:
-                    print('Aposte preto')
-                    status = 0
+                    count_reds += 1
+            if count_reds == 4:
+                print('Aguarde tem muitos vermelhos')
+                status = 0
+            else 
+                print('Aposte preto')
+                status = 0
         elif lista_historico[0] == 'black':
+            count_blacks = 0
             for i in range(1,5):
                 if lista_historico[i] == 'black':
-                    print('Aguarde tem muitos pretos')
-                    status = 0
-                else:
-                    print('Aposte vermelho')
-                    status = 0
+                    count_blacks += 1
+            if count_blacks == 4
+                print('Aguarde tem muitos pretos')
+                status = 0
+            else 
+                print('Aposte vermelho')
+                status = 0
         else:
             print('Aguarde, analisando')
             status = 0
