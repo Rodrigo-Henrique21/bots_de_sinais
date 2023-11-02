@@ -3,11 +3,15 @@ import requests as rq
 import datetime as dt
 import pytz
 import time
+import telebot
 
 status = 0
 cont = 0
 operacao_atual = 0
 hora_5m = 0
+
+bot = telebot.TeleBot('6852197496:AAGBO6J2HMbnMYYOguQMRvEDXbzR7UyQq8I')
+chat_id = '-4099850507'
 
 while True:
 
@@ -44,9 +48,11 @@ while True:
                     count_reds += 1
             if count_reds == 4:
                 print('Aguarde tem muitos vermelhos')
+                bot.send_message(chat_id, 'Aguarde tem muitos vermelhos')
                 status = 0
             else 
                 print('Aposte preto')
+                bot.send_message(chat_id, 'Aposte preto')
                 status = 0
         elif lista_historico[0] == 'black':
             count_blacks = 0
@@ -55,12 +61,15 @@ while True:
                     count_blacks += 1
             if count_blacks == 4
                 print('Aguarde tem muitos pretos')
+                bot.send_message(chat_id, 'Aguarde tem muitos vermelhos')
                 status = 0
             else 
                 print('Aposte vermelho')
+                bot.send_message(chat_id, 'Aposte preto')
                 status = 0
         else:
             print('Aguarde, analisando')
+            bot.send_message(chat_id, 'Aguarde, analisando')
             status = 0
     else:
         cont += 1
