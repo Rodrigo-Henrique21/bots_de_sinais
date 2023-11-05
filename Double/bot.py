@@ -104,7 +104,7 @@ class double:
             if sequencia_vermelho:
                 obj_telegram.enviar_mensagem('Aguarde, estamos uma sequencia de vermelhos')
             else:
-                obj_telegram.enviar_mensagem('Aposte preto')
+                obj_telegram.enviar_mensagem('🕑 Oportunidade encontrada! 🕑 \n🎰 JOGO: DOUBLE \n💸 ENTRAR: BLACK \n🔴 Ate um gale - Cobrir o branco \n\n🔥 Entrar após: VERMELHO')
                 sinal_enviado.append('black')
 
         elif lista_historico[0] == 'black':
@@ -114,7 +114,7 @@ class double:
             if sequencia_preto:
                 obj_telegram.enviar_mensagem('Aguarde, estamos uma sequencia de pretos')
             else:
-                obj_telegram.enviar_mensagem('Aposte vermelho')
+                obj_telegram.enviar_mensagem('🕑 Oportunidade encontrada! 🕑 \n🎰 JOGO: DOUBLE \n💸 ENTRAR: RED \n⚫ Ate um gale - Cobrir o branco \n\n🔥 Entrar após: PRETO')
                 sinal_enviado.append('red')
         else:
             obj_telegram.enviar_mensagem('Aguarde, analisando')
@@ -131,7 +131,7 @@ class double:
                 if sinal_enviado[0] == lista_historico[0]:
                     self.acertos += 1
                 elif sinal_enviado[0] != lista_historico[0]:
-                    obj_telegram.enviar_mensagem('Estrategia gale 1 - repita o sinal nessa rodada')
+                    obj_telegram.enviar_mensagem('🛡 Estrategia gale 1 - repita o sinal nessa rodada')
 
                     time.sleep(30)
                     lista_historico,data_criacao = self.requisicao_api(dt_inicio,dt_fim)
